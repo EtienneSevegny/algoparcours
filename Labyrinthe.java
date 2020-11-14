@@ -6,8 +6,16 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 import javax.swing.JFrame;
-
+/**
+ * Étienne Sévégny (1737508)
+ * Labyrinthe
+ * Créer un labyrinthe et affiche un type de chemin choisi par l'utilisateur.
+ */
 public class Labyrinthe extends Canvas {
+    /**
+     * Le main de l'application
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner numero = new Scanner( System.in );
         System.out.println( "Veuillez entrer un numéro correspondant à un type de parcours." );
@@ -24,12 +32,24 @@ public class Labyrinthe extends Canvas {
         frame.setVisible(true);
     }
     private int choix;
+
+    /**
+     * Labyrinthe
+     * Vérifie la valeur entré par l'usager.
+     * @param choix le choix de l'utilisateur.
+     */
     public Labyrinthe(int choix) {
         if(choix>2){
             throw new IllegalArgumentException("Choisisser un chiffre entre 0 et 2.");
         }
         this.choix = choix;
     }
+
+    /**
+     * paint
+     * Créer le labyrinthe graphique.
+     * @param g le graphics à utiliser pour créer les formes.
+     */
     public void paint(Graphics g) {
         Graph graph = new Graph();
         AlgoLargeur algoLargeur = new AlgoLargeur(graph);

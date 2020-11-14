@@ -1,10 +1,19 @@
 package ca.cegepvicto.techinfo.a2019.p3.da1737508.algoparcours;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
+/**
+ * Étienne Sévégny (1737508)
+ * Graph
+ * Créer un graph
+ */
 public class Graph {
     private ArrayList<ArrayList<Integer[]>> graph;
+
+    /**
+     * Graph
+     * Créer un graph et les connecte.
+     */
     public Graph() {
         int nbDeNoeud = 25;
         graph = new ArrayList<>(nbDeNoeud);
@@ -33,6 +42,13 @@ public class Graph {
         AjoutArrete(23,24,10);
 
     }
+
+    /**
+     * Connecte deux graphes ensembles
+     * @param a Le noeud a
+     * @param b le noeud b
+     * @param value la valeur du lien
+     */
     public void AjoutArrete(int a, int b,int value){
         Integer[] tab = new Integer[2];
         tab[0]=b;
@@ -43,6 +59,12 @@ public class Graph {
         tab2[1]=value;
         graph.get(b).add(tab2);
     }
+
+    /**
+     * getGraph
+     * Retourne le graph
+     * @return le graph
+     */
     public ArrayList<ArrayList<Integer[]>> getGraph() {
         return graph;
     }

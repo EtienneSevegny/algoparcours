@@ -2,11 +2,19 @@ package ca.cegepvicto.techinfo.a2019.p3.da1737508.algoparcours;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
+/**
+ * Étienne Sévégny (1737508)
+ * AlgoLargeur
+ * Trouve des chemins dans un graphe avec l'aide d'algorithme de chemin.
+ */
 public class AlgoLargeur {
     private Graph graph;
     private LinkedList<Integer> chemin;
-
+    /**
+     * Algo
+     * Constructeur de l'algorithme génétique
+     * @param graph Le graph dans lequel on peut trouver un chemin.
+     */
     public AlgoLargeur(Graph graph) {
         if (graph == null) {
             throw new IllegalArgumentException();
@@ -15,6 +23,11 @@ public class AlgoLargeur {
         chemin = new LinkedList<>();
     }
 
+    /**
+     * Profondeur
+     * L'algorithme en profondeur.
+     * @return le chemin trouvé par l'algorithme
+     */
     public LinkedList<Integer> Profondeur() {
         for (Integer i = 0; i < graph.getGraph().size(); i++) {
             if (graph.getGraph().get(i).size() != 0) {
@@ -26,6 +39,11 @@ public class AlgoLargeur {
         return chemin;
     }
 
+    /**
+     * Largeur
+     * L'algorithme en largeur.
+     * @return le chemin trouvé par l'algorithme.
+     */
     public LinkedList<Integer> Largeur() {
         LinkedList<Integer> file = new LinkedList<>();
         file.add(0);
@@ -42,6 +60,11 @@ public class AlgoLargeur {
         return chemin;
     }
 
+    /**
+     * Dijkstra
+     * L'algorithme de Dijkstra.
+     * @return le chemin trouvé par l'algorithme.
+     */
     public LinkedList<Integer> Dijkstra() {
         int[] tableauValeur = new int[graph.getGraph().size()];
         LinkedList<Integer> marque = new LinkedList<>();
@@ -55,6 +78,13 @@ public class AlgoLargeur {
         return chemin;
     }
 
+    /**
+     * DijkstraRecursif
+     * @param noeud le noeud dans lequel on entre.
+     * @param tableau le tableau de valeur de noeud
+     * @param marque LinkedList des noeuds dans lequel on a déjà entrer.
+     * @return quelque chose pour briser le recursif.
+     */
     private boolean DijkstraRecursif(int noeud, int[] tableau, LinkedList<Integer> marque) {
         for (Integer[] voisin : graph.getGraph().get(noeud)) {
             if (tableau[voisin[0]] == 10000) {
@@ -85,6 +115,12 @@ public class AlgoLargeur {
         return true;
     }
 
+    /**
+     * cheminPlusCours
+     * @param noeud noeud dans lequel on entre.
+     * @param valeur tableau de valeur de noeud.
+     * @return true pour briser le recursif.
+     */
     private boolean cheminPlusCours(Integer noeud, int[] valeur) {
         chemin.add(noeud);
         if (noeud != 21) {
@@ -104,6 +140,11 @@ public class AlgoLargeur {
         return true;
     }
 
+    /**
+     * Visite
+     * Créer le chemin en profondeur.
+     * @param noeud le noeud dans lequel on est.
+     */
     private void Visite(Integer noeud) {
         chemin.add(noeud);
         for (Integer[] voisin : graph.getGraph().get(noeud)) {
