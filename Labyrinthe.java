@@ -64,7 +64,7 @@ public class Labyrinthe extends Canvas {
         }
         int size = algo.size();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class Labyrinthe extends Canvas {
                             g.setColor(Color.cyan);
                             g.fillRect(70*j, 70*k, 70, 70);
                             try {
-                                Thread.sleep(1000);
+                                Thread.sleep(500);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
