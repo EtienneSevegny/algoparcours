@@ -9,6 +9,6 @@ class GraphTest {
     void test(){
         Graph graph = new Graph();
         AlgoLargeur algo = new AlgoLargeur(graph);
-        algo.Largeur();
+        algo.Dijkstra();
     }
 }
